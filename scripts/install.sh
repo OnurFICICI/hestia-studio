@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Hestia Studio 2.1.0. Only custom theme assets are installed; no core files changed.
+# Hestia Studio 2.1.1. Only custom theme assets are installed; no core files changed.
 set -euo pipefail
 [[ ${EUID} -eq 0 ]] || { printf '%s\n' 'Run this installer as root.' >&2; exit 1; }
 root=/usr/local/hestia
@@ -66,5 +66,5 @@ for i in "${order[@]}"; do
   cmp -s -- "${sources[$i]}" "${targets[$i]}"
 done
 trap - ERR
-printf 'Installed Studio 2.1.0 with 43 locales. Backup: %s\n' "$backup_dir"
+printf 'Installed Studio 2.1.1 with 43 locales. Backup: %s\n' "$backup_dir"
 printf '%s\n' 'Select studio in Hestia appearance settings, then reload.' 'No core templates, accounts, services or permissions were changed.'

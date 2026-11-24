@@ -1,6 +1,6 @@
 # Installing Hestia Studio
 
-Studio 2.1.0 targets HestiaCP 1.10.9. Install it on the Hestia server, not on a desktop computer or inside a website's public directory.
+Studio 2.1.1 targets HestiaCP 1.10.9. Install it on the Hestia server, not on a desktop computer or inside a website's public directory.
 
 ## Requirements
 
