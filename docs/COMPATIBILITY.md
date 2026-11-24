@@ -40,7 +40,7 @@ Studio 2.1 uses Contact Name for the profile display/initials and a theme-owned 
 - PHP and Node syntax checks; theme contracts cover 43 dictionaries, role/impersonation/policy combinations, safe JSON output, statistics whitelisting and core-free installation targets. Regression tests use representative RRD export JSON, exercise actual dashboard chart selection, preserve CPU/memory scales and gaps, and test conflicting account/server languages in both directions, including locale fallback and number/date formatting.
 - Twenty-one original PHP views rendered locally with fictional values. Fixtures exercise native list sorting/selection and form frontend modules; they never run Hestia controllers or service commands.
 - Browser checks cover the 14-service synthetic Overview, RRD chart gaps, CPU/live and memory tabs, icon tooltips, palette persistence, profile spacing, light/dark appearance, settings section switching and responsive layouts. The original 72 fixture settings controls remain in the native form.
-- Local Windows fixtures use synthetic data and a request adapter; that adapter is excluded from installation. The 2.1.1 regressions model the official 1.10.9 RRD export format without copying production responses. A targeted Linux/browser recheck of the new load-scale and account-language fixes remains outstanding. No CPU history collector, cron job or daemon is installed.
+- Local Windows fixtures use synthetic data and a request adapter; that adapter is excluded from installation. The 2.1.1 regressions model the official 1.10.9 RRD export format without copying production responses. Automated validation also passed in GitHub's Ubuntu 24.04 workflow. Live installation and load-scale checks are recorded below; targeted real-Hestia browser checks of account/server language mismatch and RTL remain outstanding. No CPU history collector, cron job or daemon is installed.
 - Release archives use explicit allowlists; local fixtures, credentials and real server data are excluded.
 
 ### Maintainer-confirmed Linux checks
@@ -53,9 +53,16 @@ On 2026-11-24 the maintainer confirmed the following checks on **Ubuntu 24.04 / 
 - Turkish display, palette switching, light/dark switching, the mobile menu, and opening server settings.
 - Installation from the published GitHub Release and ongoing use without additional reported problems.
 
-These are reported installation and interface results, not a new deployment performed while preparing 2.1.1. No server addresses, account details, production screenshots, or credentials are included here.
+After the **v2.1.1** Release was published, the maintainer also confirmed the following on **2026-11-24**, on the same **Ubuntu 24.04 / HestiaCP 1.10.9** server:
 
-This is not a comprehensive production regression test. User creation, service restarts, SSL issuance, mail delivery, hosting-backup restoration, and all administration operations have not been verified. First-install restoration does **not** establish that upgrading from an older Studio version and rolling back to it works. The new 2.1.1 fixes have automated local coverage, but their targeted Linux/browser validation has not yet been repeated. Translation key coverage is checked; native-speaker review remains appropriate.
+- Successful installation of the published v2.1.1 Release, with no reported problems after installation.
+- Byte-for-byte agreement between all 46 installed theme files and the release package.
+- The load-average graph displays the corrected scale, and Turkish display works.
+- Hestia core files and account settings remain unchanged; a backup of the previous Studio version was created.
+
+These are maintainer-reported installation and interface results. The live installation occurred after release publication, separately from patch preparation. No server addresses, account details, production screenshots, credentials, or actual backup paths are included here.
+
+This is not a comprehensive production regression test. User creation, service restarts, SSL issuance, mail delivery, hosting-backup restoration, and all administration operations have not been verified. First-install restoration and creation of an upgrade backup do **not** establish that rolling back to an older Studio version after an upgrade works. The 2.1.1 fixes have automated coverage locally and on GitHub's Ubuntu 24.04 runner. Account/server language mismatch and RTL behavior have not yet received a targeted real-Hestia browser check. Translation key coverage is checked; native-speaker review remains appropriate.
 
 ## References
 

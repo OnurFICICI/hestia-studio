@@ -18,6 +18,8 @@ Your existing forms, hosting modules, permissions, and backend actions continue 
 
 > **Compatibility:** Studio **2.1.1** targets HestiaCP **1.10.9**. The installer rejects other versions. Screenshots use fictional accounts, reserved example domains, and synthetic measurements. Read the [validation limits](docs/COMPATIBILITY.md#verification-and-limits) before deployment.
 
+> **Live-server verification:** the maintainer confirmed successful installation of **v2.1.1** on **Ubuntu 24.04 / HestiaCP 1.10.9**, matching of all 46 installed theme files, the corrected load-average scale, and working Turkish display on **2026-11-24**. See the [verification details](docs/COMPATIBILITY.md#maintainer-confirmed-linux-checks).
+
 ## What you get
 
 | Feature | What it does |
@@ -165,7 +167,9 @@ python scripts/package.py
 
 **Verified on Ubuntu 24.04 with HestiaCP 1.10.9:** the maintainer confirmed installation of 2.1.0 from the public GitHub source ZIP, an exact match for all 46 installed theme files, restoration using the first-install backup, and reinstallation. Installation from the published GitHub Release and ongoing use were also confirmed. Turkish display, palette changes, light/dark switching, the mobile menu, and opening server settings were checked.
 
-This is a limited installation and interface check, not a comprehensive production test. User creation, service restarts, SSL issuance, mail delivery, and all administration operations were not verified. Restoring a first-install backup does not verify rollback to an older Studio version after an upgrade. The 2.1.1 load-scale and account-language fixes have local automated regression coverage; those fixes still need a targeted Linux/browser check after installation. See [compatibility and testing](docs/COMPATIBILITY.md).
+**v2.1.1 live verification, confirmed 2026-11-24:** the maintainer subsequently installed the published v2.1.1 Release on the same Ubuntu 24.04 / HestiaCP 1.10.9 server. All 46 installed theme files matched the package, the load-average graph used the corrected scale, and Turkish display worked. The maintainer reported no problems after installation. Hestia core files and account settings were unchanged.
+
+These are limited installation and interface checks, not a comprehensive production test. User creation, service restarts, SSL issuance, mail delivery, and all administration operations were not verified. Restoring a first-install backup does not verify rollback to an older Studio version after an upgrade. The 2.1.1 fixes have automated regression coverage locally and in GitHub's Ubuntu 24.04 workflow; the account/server language mismatch and RTL scenarios still need a targeted real-Hestia browser check. See [compatibility and testing](docs/COMPATIBILITY.md).
 
 ## Contribute
 
