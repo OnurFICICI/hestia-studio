@@ -23,7 +23,13 @@ Hestia continues to render the original forms, CSRF tokens, submit targets, perm
 
 Appearance controls persist locally. Overview makes authenticated same-origin read-only requests to existing Hestia routes; it does not save configuration or execute administrative commands. CPU/RAM/root-disk values are collected by the theme PHP hook on the authorized services Overview only. Theme navigation is not an authorization layer: Hestia controllers remain authoritative.
 
-Version 2.1.0 uses Contact Name for the profile display/initials and a theme-owned session flag for the first administrator Users-to-Overview navigation. The default server/monitoring policy still determines whether Overview uses services or account statistics. Other initial pages and subsequent Users visits are preserved.
+Studio 2.1 uses Contact Name for the profile display/initials and a theme-owned session flag for the first administrator Users-to-Overview navigation. The default server/monitoring policy still determines whether Overview uses services or account statistics. Other initial pages and subsequent Users visits are preserved.
+
+### 2.1.1 corrections
+
+- HestiaCP 1.10.9 `v-update-sys-rrd-la` stores load multiplied by 100; `v-export-rrd` exports `[Load, Processes]` without normalization. Studio divides only the load column by 100 (`105` becomes `1.05`). The process count is never used as a substitute. Zero is valid; missing, negative, nonnumeric, or nonfinite samples remain gaps. Memory history stays in MiB and live CPU stays in percent.
+- The PHP bridge includes the resolved account language in its safely encoded JSON context. JavaScript uses it for the document's presentation language, RTL/LTR direction, number formatting, dates, and localized text operations. It does not modify account preferences or server settings. Arabic, Persian, Sorani Kurdish, and Urdu remain RTL even when the server default is English; English accounts remain LTR when the server default is RTL.
+- Selection preserves account-before-server precedence and case/underscore normalization. Empty account language uses the server default. Invalid or unavailable dictionaries retain the existing gettext/English labels and use `en` as the presentation fallback. Native Hestia form translations remain Hestia's responsibility.
 
 ## Preview versus installed theme
 
@@ -31,17 +37,31 @@ Version 2.1.0 uses Contact Name for the profile display/initials and a theme-own
 
 ## Verification and limits
 
-- PHP and Node syntax checks; theme contracts cover 43 dictionaries, role/impersonation/policy combinations, safe JSON output, statistics whitelisting and core-free installation targets.
+- PHP and Node syntax checks; theme contracts cover 43 dictionaries, role/impersonation/policy combinations, safe JSON output, statistics whitelisting and core-free installation targets. Regression tests use representative RRD export JSON, exercise actual dashboard chart selection, preserve CPU/memory scales and gaps, and test conflicting account/server languages in both directions, including locale fallback and number/date formatting.
 - Twenty-one original PHP views rendered locally with fictional values. Fixtures exercise native list sorting/selection and form frontend modules; they never run Hestia controllers or service commands.
 - Browser checks cover the 14-service synthetic Overview, RRD chart gaps, CPU/live and memory tabs, icon tooltips, palette persistence, profile spacing, light/dark appearance, settings section switching and responsive layouts. The original 72 fixture settings controls remain in the native form.
-- Live Linux metrics and production RRD responses require validation on the target server. Local Windows fixtures explicitly use synthetic data and a request adapter; that adapter is excluded from installation. No CPU history collector, cron job or daemon is installed.
+- Local Windows fixtures use synthetic data and a request adapter; that adapter is excluded from installation. The 2.1.1 regressions model the official 1.10.9 RRD export format without copying production responses. A targeted Linux/browser recheck of the new load-scale and account-language fixes remains outstanding. No CPU history collector, cron job or daemon is installed.
 - Release archives use explicit allowlists; local fixtures, credentials and real server data are excluded.
 
-This is not a full production regression test. Real provisioning, mail delivery, SSL issuance, backup restore and service operations were not executed. SSH access was unavailable in the development environment, so these changes were not deployed to production. Bash installer execution was also unavailable in the Windows sandbox; validate install/restore on a staging HestiaCP 1.10.9 host before a public release. Translation key coverage is checked; native-speaker review remains appropriate.
+### Maintainer-confirmed Linux checks
+
+On 2026-11-24 the maintainer confirmed the following checks on **Ubuntu 24.04 / HestiaCP 1.10.9**, using Studio **2.1.0**:
+
+- Installation from the public GitHub source ZIP.
+- Byte-for-byte agreement between the 46 installed theme files and their sources.
+- Restoration from the backup made by the first installation, followed by reinstallation.
+- Turkish display, palette switching, light/dark switching, the mobile menu, and opening server settings.
+- Installation from the published GitHub Release and ongoing use without additional reported problems.
+
+These are reported installation and interface results, not a new deployment performed while preparing 2.1.1. No server addresses, account details, production screenshots, or credentials are included here.
+
+This is not a comprehensive production regression test. User creation, service restarts, SSL issuance, mail delivery, hosting-backup restoration, and all administration operations have not been verified. First-install restoration does **not** establish that upgrading from an older Studio version and rolling back to it works. The new 2.1.1 fixes have automated local coverage, but their targeted Linux/browser validation has not yet been repeated. Translation key coverage is checked; native-speaker review remains appropriate.
 
 ## References
 
 - https://github.com/hestiacp/hestiacp/tree/1.10.9/web/templates
+- https://github.com/hestiacp/hestiacp/blob/1.10.9/bin/v-update-sys-rrd-la
+- https://github.com/hestiacp/hestiacp/blob/1.10.9/bin/v-export-rrd
 - https://hestiacp.com/docs/introduction/getting-started
 - https://hestiacp.com/docs/server-administration/customisation
 - https://hestiacp.com/docs/server-administration/configuration

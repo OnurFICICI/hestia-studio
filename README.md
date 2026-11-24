@@ -16,7 +16,7 @@
 
 Your existing forms, hosting modules, permissions, and backend actions continue to run through HestiaCP. Studio installs custom CSS, JavaScript, PHP presentation metadata, and language dictionaries. **No Hestia core file is patched.**
 
-> **Compatibility:** Studio **2.1.0** targets HestiaCP **1.10.9**. The installer rejects other versions. Screenshots use fictional accounts, reserved example domains, and synthetic measurements. Read the [validation limits](docs/COMPATIBILITY.md#verification-and-limits) before deployment.
+> **Compatibility:** Studio **2.1.1** targets HestiaCP **1.10.9**. The installer rejects other versions. Screenshots use fictional accounts, reserved example domains, and synthetic measurements. Read the [validation limits](docs/COMPATIBILITY.md#verification-and-limits) before deployment.
 
 ## What you get
 
@@ -133,7 +133,9 @@ Studio uses Hestia's custom theme directory and existing custom-script loader. N
 
 The administrator overview reads authorized, same-origin Hestia pages and RRD data. Host metrics refresh every 30 seconds while the page is visible. The PHP component reads Linux CPU ticks, memory, and root-filesystem space only in the permitted administrator overview. It executes no shell commands and creates no new endpoint.
 
-**CPU percentage is a live sample.** Historical charts show load average or used memory; load average is not labeled historical CPU percentage. Missing samples remain gaps; unavailable data is labeled. Root-filesystem disk and account bandwidth have different scopes.
+**CPU percentage is a live sample.** Historical charts show load average or used memory; load average is not labeled historical CPU percentage. HestiaCP 1.10.9 exports load multiplied by 100; Studio converts that series back to load units (raw `105` becomes `1.05`). Memory history remains in MiB and live CPU remains a percentage. Missing samples remain gaps, including when the process-count column is present; zero remains valid. Root-filesystem disk and account bandwidth have different scopes.
+
+Theme translations, layout direction, and number/date formatting follow the effective account language supplied by the PHP bridge. A different server-default HTML language does not override it. Empty account language uses the server default; invalid or unavailable dictionaries retain the existing gettext/English label fallback and use English formatting. The browser's presentation language is updated without changing account or server preferences.
 
 The profile uses the current account's Contact Name, falling back to the username. An administrator's first plain Users page after login opens Overview; later Users visits, deep links, POST requests, and impersonated sessions keep their normal behavior.
 
@@ -161,7 +163,9 @@ python scripts/package.py
 - Packaging uses explicit file lists, verifies content, normalizes archive ownership metadata, and creates SHA-256 checksums.
 - `npm run dev` serves the prototype locally.
 
-Local view checks do not prove every production operation works. Provisioning, mail delivery, SSL issuance, backup restore, installation, and rollback need validation on a disposable HestiaCP 1.10.9 host. See [compatibility and testing](docs/COMPATIBILITY.md).
+**Verified on Ubuntu 24.04 with HestiaCP 1.10.9:** the maintainer confirmed installation of 2.1.0 from the public GitHub source ZIP, an exact match for all 46 installed theme files, restoration using the first-install backup, and reinstallation. Installation from the published GitHub Release and ongoing use were also confirmed. Turkish display, palette changes, light/dark switching, the mobile menu, and opening server settings were checked.
+
+This is a limited installation and interface check, not a comprehensive production test. User creation, service restarts, SSL issuance, mail delivery, and all administration operations were not verified. Restoring a first-install backup does not verify rollback to an older Studio version after an upgrade. The 2.1.1 load-scale and account-language fixes have local automated regression coverage; those fixes still need a targeted Linux/browser check after installation. See [compatibility and testing](docs/COMPATIBILITY.md).
 
 ## Contribute
 

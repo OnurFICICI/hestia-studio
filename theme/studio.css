@@ -1,4 +1,4 @@
-/* Hestia Studio 2.1.0 — targets HestiaCP 1.10.9. GPL-3.0-or-later.
+/* Hestia Studio 2.1.1 — targets HestiaCP 1.10.9. GPL-3.0-or-later.
    Loaded through Hestia's custom theme mechanism; no PHP templates replaced. */
 :root{--studio-loaded:4;--s-bg:#f6f8fa;--s-surface:#fff;--s-muted:#7b8694;--s-text:#253342;--s-border:#e6ebef;--s-accent:#147f64;--s-tint:#eaf6f0;--s-nav:236px;--font-family:'Segoe UI',Inter,system-ui,sans-serif;--font-family-monospace:ui-monospace,Consolas,monospace;--border-radius-base:7px;--color-text:var(--s-text);--color-text-heading:var(--s-text);--color-text-link:var(--s-accent);--color-text-link-hover:#0b674f;--color-background:var(--s-bg);--top-bar-background:var(--s-surface);--top-bar-box-shadow:none;--top-bar-border-bottom:1px solid var(--s-border);--chart-label-color:var(--s-muted);--chart-grid-color:var(--s-border);--chart-line-1-color:var(--s-accent)}
 html[data-studio-theme=dark]{color-scheme:dark;--s-bg:#111820;--s-surface:#19232e;--s-muted:#94a3b4;--s-text:#e6edf5;--s-border:#2a3746;--s-accent:#64d9b2;--s-tint:#18382f;--color-text-link-hover:#9aebd1}

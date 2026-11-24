@@ -1,6 +1,6 @@
 # Security policy
 
-Studio 2.1.0 targets HestiaCP 1.10.9. Other versions are unverified. This community project has no guaranteed security-response SLA.
+Studio 2.1.1 targets HestiaCP 1.10.9. Other versions are unverified. This community project has no guaranteed security-response SLA.
 
 ## Report privately
 
