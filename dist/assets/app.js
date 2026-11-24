@@ -1,0 +1,45 @@
+const icons = {
+  grid:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+  database:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/>',
+  dns:'<rect x="8" y="3" width="8" height="5" rx="1"/><rect x="2" y="16" width="7" height="5" rx="1"/><rect x="15" y="16" width="7" height="5" rx="1"/><path d="M12 8v4M5.5 16v-4h13v4"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  backup:'<path d="M3 7h18v4H3zM5 11v10h14V11M8 3h8M10 15h4"/>',
+  shield:'<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6zM8 12l3 3 5-6"/>',
+  users:'<circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6M18 15a5 5 0 0 1 3 6"/>',
+  folder:'<path d="M3 7a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v9H3z"/>',
+  settings:'<path d="m9 3-1 3-3 1-2 3 2 2v3l2 2 3-1 2 2 3-2 3 1 2-3-1-3 2-2-2-3-3-1-1-3z"/><circle cx="12" cy="11" r="3"/>',
+  arrow:'<path d="M5 12h14m-5-5 5 5-5 5"/>',chevron:'<path d="m9 5 7 7-7 7"/>',down:'<path d="m6 9 6 6 6-6"/>',
+  search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',plus:'<path d="M12 5v14M5 12h14"/>',
+  bell:'<path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>',
+  moon:'<path d="M20.8 13.2A9 9 0 0 1 10.8 3.1 9 9 0 1 0 20.8 13.2Z"/>',
+  server:'<rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/>',
+  cpu:'<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/>',
+  memory:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10v4m5-4v4m5-4v4M7 18v3m5-3v3m5-3v3"/>',
+  disk:'<path d="m6 4-3 9v6h18v-6l-3-9zM3 13h18M16 16h2"/>',
+  activity:'<path d="M2 12h5l3-8 4 16 3-8h5"/>',
+  download:'<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/>',
+  lock:'<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4M12 14v3"/>',
+  check:'<path d="m5 12 4 4L19 6"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',
+  external:'<path d="M14 3h7v7m0-7L11 13M10 3H3v18h18v-7"/>',code:'<path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/>',
+  help:'<circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 1 1 4 3v2m0 3h.01"/>',refresh:'<path d="M20 7v5h-5M4 17v-5h5M6 6a8 8 0 0 1 14 6M4 12a8 8 0 0 0 14 6"/>',
+  terminal:'<path d="m5 6 6 6-6 6m8 0h6"/>',logout:'<path d="M9 3H3v18h6m5-14 5 5-5 5M8 12h13"/>',dots:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>'
+};
+window.studioIcon = name => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]||icons.grid}</svg>`;
+document.addEventListener('alpine:init',()=>{
+  Alpine.data('studio',()=>window.extendStudio({
+    page:'overview',mobile:false,profileOpen:false,dark:false,period:'24s',metric:'cpu',filter:'Tümü',query:'',command:'',modal:null,detail:null,notifications:false,toast:'',notificationRead:false,
+    demo:structuredClone(window.STUDIO_DEMO),
+    init(){try{this.dark=localStorage.getItem('hestia-studio-theme')==='dark'}catch{} this.applyTheme();this.$watch('dark',()=>this.applyTheme());},
+    applyTheme(){document.documentElement.dataset.theme=this.dark?'dark':'light';try{localStorage.setItem('hestia-studio-theme',this.dark?'dark':'light')}catch{}},
+    icon:window.studioIcon,
+    get commandResults(){return this.nav.filter(x=>x.name.toLocaleLowerCase('tr').includes(this.command.toLocaleLowerCase('tr')))},
+    get chartPoints(){let a=this.metric==='cpu'?[27,28,24,30,25,24,31,25,27,42,39,31,30,32,28,29,37,40,36,32,33,42,45,39,34,32,38,35,30,31,29,34,29,27,32,28,31,35,30,28,32,29,33,31,32,28,27,24]:[43,43,45,44,46,45,44,43,44,47,49,48,47,46,48,48,49,48,47,46,47,49,51,50,48,47,46,46,48,47,49,50,49,48,47,46,48,49,48,47,48,49,47,46,45,46,47,48];if(this.period==='7g')a=a.map((v,i)=>Math.min(80,v+Math.sin(i/4)*12+6));if(this.period==='30g')a=a.map((v,i)=>Math.min(90,v+Math.cos(i/5)*18+10));return a.map((v,i)=>`${(i*700/(a.length-1)).toFixed(1)},${160-v*1.6}`).join(' ')},
+    openProfile(){this.profileOpen=!this.profileOpen;this.notifications=false;if(this.profileOpen)this.$nextTick(()=>document.querySelector('.profile-dropdown button')?.focus())},
+    profileNext(step){const nodes=Array.from(document.querySelectorAll('.profile-dropdown button,.profile-dropdown a'));const i=nodes.indexOf(document.activeElement);nodes[(i+step+nodes.length)%nodes.length]?.focus()},
+    notify(message){this.toast=message;clearTimeout(this._toastTimer);this._toastTimer=setTimeout(()=>this.toast='',4200)},
+    shortcuts(e){if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();this.openModal('search')}if(e.key==='Escape')this.close();},
+  }));
+});

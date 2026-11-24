@@ -1,0 +1,1209 @@
+{
+  "version": "1.10.9",
+  "commit": "99df77b4c29408b7a941c48d0ec97d44148cf50f",
+  "note": "Source-level inventory; conditional and dynamically generated controls may differ at runtime. Native templates are never replaced by Studio. This is not a live test report.",
+  "templates": [
+    {
+      "template": "add_access_key.php",
+      "sha256": "d9e02be152dbc26f8356f9d75d0d9edaca4ca234fb6a19e9ecea235bd9ff8872",
+      "form_names": [
+        "v_add_access_key"
+      ],
+      "control_names": [
+        "ok",
+        "token",
+        "v_comment"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_cron.php",
+      "sha256": "9966dafd84f165f02f40684bd242ab3eecd6b182e838656fd6e938b85e7ea78e",
+      "form_names": [
+        "v_add_cron"
+      ],
+      "control_names": [
+        "h_day",
+        "h_hour",
+        "h_min",
+        "h_month",
+        "h_wday",
+        "ok",
+        "token",
+        "v_cmd",
+        "v_day",
+        "v_hour",
+        "v_min",
+        "v_month",
+        "v_wday"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_db.php",
+      "sha256": "1093ca5571476a4e96489c054eec213eb1ca4b95930ddb4f4ab71eb0f9535c59",
+      "form_names": [],
+      "control_names": [
+        "ok",
+        "token",
+        "v_charset",
+        "v_database",
+        "v_db_email",
+        "v_dbuser",
+        "v_host",
+        "v_password",
+        "v_type"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_dns.php",
+      "sha256": "cbf6d8793ca22a75f400581b232f9a23ca0d59ebe8e113faa1504369e92520c5",
+      "form_names": [],
+      "control_names": [
+        "ok",
+        "token",
+        "v_dnssec",
+        "v_domain",
+        "v_exp",
+        "v_ip",
+        "v_ns1",
+        "v_ns2",
+        "v_template",
+        "v_ttl"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_dns_rec.php",
+      "sha256": "fbc9cfcf4dab749abeb094a0856922bced9c43dbfd084cc4ebea7fe7a1b8be75",
+      "form_names": [
+        "v_add_dns_rec"
+      ],
+      "control_names": [
+        "ok_rec",
+        "token",
+        "v_domain",
+        "v_priority",
+        "v_rec",
+        "v_ttl",
+        "v_type",
+        "v_val"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_firewall.php",
+      "sha256": "cd5e5d4f3de132668ee840e4beeb95a65ff8db137a7c0940405d90d7679ea18c",
+      "form_names": [
+        "v_add_ip"
+      ],
+      "control_names": [
+        "ok",
+        "token",
+        "v_action",
+        "v_comment",
+        "v_ip",
+        "v_port",
+        "v_protocol"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_firewall_banlist.php",
+      "sha256": "26970adc3ad588d96041565dd0d7a742fa8a22e7e229e907c7e47c53af8abd74",
+      "form_names": [
+        "v_add_ip"
+      ],
+      "control_names": [
+        "ok",
+        "token",
+        "v_chain",
+        "v_ip"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_firewall_ipset.php",
+      "sha256": "ae7cd89bbf8b0276ead62dc0dcb9f1e15379092979ff14ce0bd82d5cdf0b1ad8",
+      "form_names": [
+        "v_add_ipset"
+      ],
+      "control_names": [
+        "ok",
+        "token",
+        "v_autoupdate",
+        "v_datasource",
+        "v_ipname",
+        "v_ipver"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_ip.php",
+      "sha256": "f47fc9aa95fa7cc504125830de82b4ad814846926201df0202c034758df48209",
+      "form_names": [],
+      "control_names": [
+        "ok",
+        "token",
+        "v_interface",
+        "v_ip",
+        "v_name",
+        "v_nat",
+        "v_netmask",
+        "v_owner",
+        "v_shared"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_key.php",
+      "sha256": "fa2cf0a72b772d0e6ec130128f0b2695c4931f0805caabb27430df7dbd84a348",
+      "form_names": [
+        "v_add_key"
+      ],
+      "control_names": [
+        "ok",
+        "token",
+        "v_key"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_mail.php",
+      "sha256": "81e8a60af9542acee9c661ad410d38bfd3eb4cf744096a3104826bffcae22c57",
+      "form_names": [],
+      "control_names": [
+        "ok",
+        "token",
+        "v_antispam",
+        "v_antivirus",
+        "v_dkim",
+        "v_dkim_selector",
+        "v_domain",
+        "v_reject",
+        "v_smtp_relay",
+        "v_smtp_relay_host",
+        "v_smtp_relay_pass",
+        "v_smtp_relay_port",
+        "v_smtp_relay_user",
+        "v_webmail"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_mail_acc.php",
+      "sha256": "1cfaf5bd060a6d08d5a26d040b236bf18f9c1bbbedf8cacfa3b069aa7414ba4c",
+      "form_names": [],
+      "control_names": [
+        "ok_acc",
+        "token",
+        "v_account",
+        "v_aliases",
+        "v_blackhole",
+        "v_domain",
+        "v_fwd",
+        "v_fwd_only",
+        "v_password",
+        "v_quota",
+        "v_rate",
+        "v_send_email"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_package.php",
+      "sha256": "d57893ca133427c22209feda2f95768b82b281671183132f289e3fbb769b044e",
+      "form_names": [
+        "v_add_package"
+      ],
+      "control_names": [
+        "ok",
+        "token",
+        "v_backend_template",
+        "v_backups",
+        "v_backups_incremental",
+        "v_bandwidth",
+        "v_cpu_quota",
+        "v_cpu_quota_period",
+        "v_cron_jobs",
+        "v_databases",
+        "v_disk_quota",
+        "v_dns_domains",
+        "v_dns_records",
+        "v_dns_template",
+        "v_mail_accounts",
+        "v_mail_domains",
+        "v_memory_limit",
+        "v_ns1",
+        "v_ns2",
+        "v_package",
+        "v_proxy_template",
+        "v_ratelimit",
+        "v_shell",
+        "v_swap_limit",
+        "v_web_aliases",
+        "v_web_domains",
+        "v_web_template"
+      ],
+      "details_sections": 6
+    },
+    {
+      "template": "add_user.php",
+      "sha256": "4d1f968beb885a01e423e5977e34e181020e7dc583b3ec3571f44e6d09b432db",
+      "form_names": [],
+      "control_names": [
+        "ok",
+        "token",
+        "v_email",
+        "v_email_notice",
+        "v_language",
+        "v_login_disabled",
+        "v_name",
+        "v_notify",
+        "v_package",
+        "v_password",
+        "v_role",
+        "v_username"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "add_web.php",
+      "sha256": "629a4015eb64ec74ffe67c907cd67e3799d302ee94577862d74f173e11221d91",
+      "form_names": [
+        "v_add_web"
+      ],
+      "control_names": [
+        "ok",
+        "token",
+        "v_dns",
+        "v_domain",
+        "v_ip",
+        "v_mail"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "debug_panel.php",
+      "sha256": "d3b07e8f430818de842f332e9800300b392c84e97ad24737704b3b954af46d91",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_backup_exclusions.php",
+      "sha256": "e3eee8310955111c2742769e7d1e39693de7a22af514bedeaf5b322b380adc9c",
+      "form_names": [
+        "v_edit_backup_exclusions"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_db",
+        "v_mail",
+        "v_userdir",
+        "v_web"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_cron.php",
+      "sha256": "27f0ba3018f18b8a14d212d069c994922384c741df2e58db182322536fda950e",
+      "form_names": [
+        "v_edit_cron"
+      ],
+      "control_names": [
+        "h_day",
+        "h_hour",
+        "h_min",
+        "h_month",
+        "h_wday",
+        "save",
+        "token",
+        "v_cmd",
+        "v_day",
+        "v_hour",
+        "v_min",
+        "v_month",
+        "v_wday"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_db.php",
+      "sha256": "4a70fb495e53897c0ad350ff39faec40ef90640365449f039ea0bfcd029411ac",
+      "form_names": [
+        "v_edit_db"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_charset",
+        "v_database",
+        "v_dbuser",
+        "v_host",
+        "v_password",
+        "v_type"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_dns.php",
+      "sha256": "33aec8bfbcb14b815bafe1721cb4fe046490eecef7716ba95f893cbbf0a78780",
+      "form_names": [
+        "v_edit_dns"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_dnssec",
+        "v_domain",
+        "v_exp",
+        "v_ip",
+        "v_soa",
+        "v_template",
+        "v_ttl"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_dns_rec.php",
+      "sha256": "5a7aaa42ba49371a802752598300269baed30994da8cc6dd054de85014872ccd",
+      "form_names": [
+        "v_edit_dns_rec"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_domain",
+        "v_priority",
+        "v_rec",
+        "v_record_id",
+        "v_ttl",
+        "v_type",
+        "v_val"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_firewall.php",
+      "sha256": "5bc42a0356772288ee2541d45be4d23f72bff5ae7ce8544b5414d9da12f8d686",
+      "form_names": [
+        "v_edit_firewall"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_action",
+        "v_comment",
+        "v_ip",
+        "v_port",
+        "v_protocol"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_ip.php",
+      "sha256": "5c3fac7742027e5e4971346eea8a69f3e2c5304583051eb1052cf2e4780f704a",
+      "form_names": [],
+      "control_names": [
+        "save",
+        "token",
+        "v_interface",
+        "v_ip",
+        "v_name",
+        "v_nat",
+        "v_netmask",
+        "v_owner",
+        "v_shared"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_mail.php",
+      "sha256": "cff4f6ef4f0a8563e9f9104898f0c8e252a0f74d8527fbf43e24633248d68a1e",
+      "form_names": [],
+      "control_names": [
+        "save",
+        "token",
+        "v_antispam",
+        "v_antivirus",
+        "v_catchall",
+        "v_dkim",
+        "v_dkim_selector",
+        "v_domain",
+        "v_letsencrypt",
+        "v_rate",
+        "v_reject",
+        "v_smtp_relay",
+        "v_smtp_relay_host",
+        "v_smtp_relay_pass",
+        "v_smtp_relay_port",
+        "v_smtp_relay_user",
+        "v_ssl",
+        "v_ssl_ca",
+        "v_ssl_crt",
+        "v_ssl_key",
+        "v_ssl_key_algo",
+        "v_webmail"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_mail_acc.php",
+      "sha256": "c8a05a26554f78b2291432306aa3de56f8e353bad4ef681d3712a729b346e2f8",
+      "form_names": [],
+      "control_names": [
+        "save",
+        "token",
+        "v_account",
+        "v_aliases",
+        "v_autoreply",
+        "v_autoreply_message",
+        "v_blackhole",
+        "v_domain",
+        "v_email",
+        "v_fwd",
+        "v_fwd_only",
+        "v_password",
+        "v_quota",
+        "v_rate",
+        "v_send_email"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_package.php",
+      "sha256": "645607e1f87250107795e5c1d578aa236598560adb7d0da343d8d2c6fbda3783",
+      "form_names": [
+        "v_edit_package"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_backend_template",
+        "v_backups",
+        "v_backups_incremental",
+        "v_bandwidth",
+        "v_cpu_quota",
+        "v_cpu_quota_period",
+        "v_cron_jobs",
+        "v_databases",
+        "v_disk_quota",
+        "v_dns_domains",
+        "v_dns_records",
+        "v_dns_template",
+        "v_mail_accounts",
+        "v_mail_domains",
+        "v_memory_limit",
+        "v_ns1",
+        "v_ns2",
+        "v_package",
+        "v_package_new",
+        "v_proxy_template",
+        "v_ratelimit",
+        "v_shell",
+        "v_swap_limit",
+        "v_web_aliases",
+        "v_web_domains",
+        "v_web_template"
+      ],
+      "details_sections": 6
+    },
+    {
+      "template": "edit_server.php",
+      "sha256": "105a3b088288b0961403e5f19486bd5bfda18cf4770332e5ceac9e65e07cb9c3",
+      "form_names": [],
+      "control_names": [
+        "save",
+        "token",
+        "v_api",
+        "v_api_allowed_ip",
+        "v_api_system",
+        "v_backup",
+        "v_backup_application_id",
+        "v_backup_application_key",
+        "v_backup_bpath",
+        "v_backup_bucket",
+        "v_backup_dir",
+        "v_backup_gzip",
+        "v_backup_host",
+        "v_backup_incremental",
+        "v_backup_mode",
+        "v_backup_password",
+        "v_backup_port",
+        "v_backup_remote_adv",
+        "v_backup_type",
+        "v_backup_username",
+        "v_debug_mode",
+        "v_dns_remote_host",
+        "v_enforce_subdomain_ownership",
+        "v_experimental_features",
+        "v_filemanager",
+        "v_firewall",
+        "v_hostname",
+        "v_inactive_session_timeout",
+        "v_keep_daily",
+        "v_keep_monthly",
+        "v_keep_weekly",
+        "v_keep_yearly",
+        "v_language",
+        "v_language_update",
+        "v_login_style",
+        "v_mysql_current",
+        "v_mysql_host",
+        "v_mysql_max",
+        "v_mysql_password",
+        "v_mysql_url",
+        "v_pgsql_host",
+        "v_pgsql_max",
+        "v_pgsql_url",
+        "v_php_default_version",
+        "v_phpmyadmin_key",
+        "v_plugin_app_installer",
+        "v_pma_restrict",
+        "v_policy_backup_suspended_users",
+        "v_policy_csrf_strictness",
+        "v_policy_sync_error_documents",
+        "v_policy_sync_skeleton",
+        "v_policy_system_hide_admin",
+        "v_policy_system_hide_services",
+        "v_policy_system_password_reset",
+        "v_policy_system_protected_admin",
+        "v_policy_user_change_theme",
+        "v_policy_user_delete_logs",
+        "v_policy_user_edit_details",
+        "v_policy_user_edit_dns_templates",
+        "v_policy_user_edit_web_templates",
+        "v_policy_user_view_logs",
+        "v_policy_user_view_suspended",
+        "v_psql_max",
+        "v_quota",
+        "v_rclone_host",
+        "v_rclone_path",
+        "v_repo",
+        "v_resources_limit",
+        "v_smtp_relay",
+        "v_smtp_relay_host",
+        "v_smtp_relay_pass",
+        "v_smtp_relay_port",
+        "v_smtp_relay_user",
+        "v_snapshots",
+        "v_ssl_crt",
+        "v_ssl_key",
+        "v_theme",
+        "v_timezone",
+        "v_upgrade_send_email_log",
+        "v_upgrade_send_notification_email",
+        "v_web_terminal",
+        "v_webmail_alias"
+      ],
+      "details_sections": 14
+    },
+    {
+      "template": "edit_server_bind9.php",
+      "sha256": "b6ebcdde71e6692f1c2c9fcf19d21040a7245edfa88d0c802fe6cd7cd8c2f629",
+      "form_names": [
+        "v_configure_server"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_config",
+        "v_options",
+        "v_restart"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_server_dovecot.php",
+      "sha256": "30742f71448e1361d1cdbb9ad1f6bf39c0aedf8babcea400aa0ef6328eb5392e",
+      "form_names": [
+        "v_configure_server"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_config",
+        "v_config1",
+        "v_config2",
+        "v_config3",
+        "v_config4",
+        "v_config5",
+        "v_config6",
+        "v_config7",
+        "v_config8",
+        "v_restart"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_server_httpd.php",
+      "sha256": "66f413d8212c1d3303a885d063e45bc4b522ca436288c509833cc6b0c2b7f1e2",
+      "form_names": [
+        "v_configure_server"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_config",
+        "v_restart"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_server_mysql.php",
+      "sha256": "fa306f431388093b6751565b67134d9063a46855d5852259264f5a9bc246ab1b",
+      "form_names": [
+        "v_configure_server"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_config",
+        "v_restart"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_server_nginx.php",
+      "sha256": "79c296782c99ace845d9a878724d84fc9ef8072fd1b801ea1176867a6ef9111b",
+      "form_names": [
+        "v_configure_server"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_config",
+        "v_restart"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_server_pgsql.php",
+      "sha256": "b6ebcdde71e6692f1c2c9fcf19d21040a7245edfa88d0c802fe6cd7cd8c2f629",
+      "form_names": [
+        "v_configure_server"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_config",
+        "v_options",
+        "v_restart"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_server_php.php",
+      "sha256": "369acd6c8c37b902a71949d667d479a1367ee973716140b3f0446949acbf9e86",
+      "form_names": [
+        "v_configure_server"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_config",
+        "v_restart"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_server_service.php",
+      "sha256": "f7bd9684b4aea4a2a4e92f48a13ae67bb659509d61e67119ffa4525b0d30b067",
+      "form_names": [
+        "v_configure_server"
+      ],
+      "control_names": [
+        "save",
+        "token",
+        "v_config",
+        "v_restart"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_user.php",
+      "sha256": "6874242c0a0e98d59ba91ea7747c9910d6a5440d9a257bc492624e2783d29882",
+      "form_names": [],
+      "control_names": [
+        "save",
+        "token",
+        "v_email",
+        "v_language",
+        "v_login_allowed_ips",
+        "v_login_disabled",
+        "v_login_use_iplist",
+        "v_name",
+        "v_ns1",
+        "v_ns2",
+        "v_package",
+        "v_password",
+        "v_phpcli",
+        "v_role",
+        "v_shell",
+        "v_sort_order",
+        "v_twofa",
+        "v_user",
+        "v_user_theme",
+        "v_username"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_web.php",
+      "sha256": "d2d73b9bc9502489a8ced4b0591b15d6298f67ccb09d9ee4a6d94cb3613b0a58",
+      "form_names": [],
+      "control_names": [
+        "save",
+        "token",
+        "v-custom-doc-domain",
+        "v-custom-doc-folder",
+        "v-custom-doc-root_prepath",
+        "v-redirect",
+        "v-redirect-checkbox",
+        "v-redirect-code",
+        "v-redirect-custom",
+        "v_aliases",
+        "v_backend_template",
+        "v_custom_doc_root_check",
+        "v_domain",
+        "v_ftp",
+        "v_ftp_pre_path",
+        "v_ftp_user[%INDEX%][delete]",
+        "v_ftp_user[%INDEX%][is_new]",
+        "v_ftp_user[%INDEX%][v_ftp_email]",
+        "v_ftp_user[%INDEX%][v_ftp_password]",
+        "v_ftp_user[%INDEX%][v_ftp_path]",
+        "v_ftp_user[%INDEX%][v_ftp_user]",
+        "v_ip",
+        "v_letsencrypt",
+        "v_nginx_cache_check",
+        "v_nginx_cache_duration",
+        "v_proxy",
+        "v_proxy_ext",
+        "v_proxy_template",
+        "v_ssl",
+        "v_ssl_ca",
+        "v_ssl_crt",
+        "v_ssl_forcessl",
+        "v_ssl_hsts",
+        "v_ssl_key",
+        "v_ssl_key_algo",
+        "v_stats",
+        "v_stats_auth",
+        "v_stats_password",
+        "v_stats_user",
+        "v_template"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "edit_whitelabel.php",
+      "sha256": "0f2408e97a3e64bb268f249cafa51fa64b2a7cedf5807bd614a1cbd06aa10074",
+      "form_names": [],
+      "control_names": [
+        "save",
+        "token",
+        "v_app_name",
+        "v_from_email",
+        "v_from_name",
+        "v_hide_docs",
+        "v_reset_logo",
+        "v_subject_email",
+        "v_title",
+        "v_update_logo"
+      ],
+      "details_sections": 2
+    },
+    {
+      "template": "generate_ssl.php",
+      "sha256": "1a57e733d92ce85945d10efdd9942801f4593fa8a1c255fab7b8e4895d512b88",
+      "form_names": [
+        "v_generate_csr"
+      ],
+      "control_names": [
+        "generate",
+        "token",
+        "v_aliases",
+        "v_country",
+        "v_domain",
+        "v_email",
+        "v_key_algo",
+        "v_locality",
+        "v_org",
+        "v_state"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_access_key.php",
+      "sha256": "5da4540cc997a52721ef56ec69fc5cb9981df0db6923a4f0e317acb5ea00451d",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_access_keys.php",
+      "sha256": "77b45c3066cefcccf1dd5e595815aa37412f1d737c72e442801e73a65eb828c9",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_backup.php",
+      "sha256": "6d48529e841dadd39d59c8559ec51b7142b1af82c8efa9f7604fe386d7b78ade",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_backup_detail.php",
+      "sha256": "8e34760fa33d6325fd4ddb3f5b937d0c161aa956f8deea92a5e05ca169ff4da3",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "backup",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_backup_detail_incremental.php",
+      "sha256": "eacfb70ae58ae7a1c5635e303203f7647ac05768d3e38e5e1c01bfed70dfb6ad",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "snapshot",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_backup_exclusions.php",
+      "sha256": "e311e5c26a67a8550b544278c70211c28fc407b8c284d69d10b36ac00f32e434",
+      "form_names": [],
+      "control_names": [
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_backup_incremental.php",
+      "sha256": "c5ab15df8e8d993c42db035075b9cc800fd316edd2096a1ce1e7303cbd6e740c",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_cron.php",
+      "sha256": "687b78626ffed32e5f1f1459472ec92ec776fe4e6cb96f71949baecd4aa19652",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_db.php",
+      "sha256": "f71785577d00a51822103392e27d52cdeaf9f540350c3a3e98a401846de6c8a4",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_dns.php",
+      "sha256": "abf130f56e14e7bb4f236fe585949a4e4e2dbe18e32763b8fea6743665084804",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_dns_public.php",
+      "sha256": "62509d15cdc572d338f043c330e77fb879d10316d564ff64bf8bb174f53b61a2",
+      "form_names": [],
+      "control_names": [
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_dns_rec.php",
+      "sha256": "11f00cf52f1a5daba7428a170aa4e058404a9c28161b7abefaf1347456fed748",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "domain",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_files_incremental.php",
+      "sha256": "0755f18d0567f760ff39ab2df374a5691c182e4bb9814a41963bf21aa58553e5",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "snapshot",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_firewall.php",
+      "sha256": "88424bbbdb7ce3dddedb5e2406c45a1ecd2b0fa969bea8ddd04e2f39fee75a0a",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_firewall_banlist.php",
+      "sha256": "c50fe7b3a4bb0fca6df7a99a37c9209c2d53aba0675b2321c82730734a0bf973",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_firewall_ipset.php",
+      "sha256": "6b647f08255771726bd43dc849d0c02048803127163854543c0e716bc08d80c7",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_ip.php",
+      "sha256": "4bc3bf206a429dc21bf7a56b3dbf204f1e06190434ff052b16254f5a8ed8f5a3",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_key.php",
+      "sha256": "24355da3dc51484df08d4f03620a112130237787c1c30dce3b135cec4da257e4",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_log.php",
+      "sha256": "23e3892547f82db546359126495637bb5c189796e48e6f514b8f2dd355438ffc",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_log_auth.php",
+      "sha256": "4153cf12c71608cf2d39de6711c45d56ddba12649dd4392de8ad86dcd2c0b7cb",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_mail.php",
+      "sha256": "ee9ed8521041ff44df3538032698b91e259e1d365008122fd25446526cecfdb3",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_mail_acc.php",
+      "sha256": "c96025d73aea14c06e34e49003cb4f3de57d0eddb2d8db5165b2a39f5c36821d",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_mail_dns.php",
+      "sha256": "0d382cb9426a2520b600696a24f1f0d8be7b1fbe38287f607abf658c8e9d1d7c",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_packages.php",
+      "sha256": "895989430a565d8d2dd767ec8d533aa78542b5c60d835a3c0b166baf3914326a",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_rrd.php",
+      "sha256": "47e019596025fddc60fb5a2a4fa047d4c4a5b141b98007ce218d550598455cb5",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_search.php",
+      "sha256": "cefce8c8b45f56ed5b09a08eacafe1dbc271d37294cd797e84f9ec449466cc7d",
+      "form_names": [],
+      "control_names": [
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_server_info.php",
+      "sha256": "567fe850d7d042706d28374d8ce52ccd7d7874e398faf1be7993007cbe3b6386",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_server_preview.php",
+      "sha256": "f570c65d0103d218310cb45510414aef66260408ac5d267c9d620ee1250ca15d",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_services.php",
+      "sha256": "ea156c39e586850e8c9a95be29b19d0590ba12a65dc60acc3ab009c87f2b1d60",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_ssl.php",
+      "sha256": "07b6046f409fa448db3f1f16973b5a6fc36a2bd13a75c0077e8fa1d7f58beae6",
+      "form_names": [
+        "v_generate_csr"
+      ],
+      "control_names": [
+        "token",
+        "v_crt",
+        "v_csr",
+        "v_key"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_stats.php",
+      "sha256": "e0a9811d5e90e0c93957f3d368d16f3d918e1b638e29bcc0d47205ed2247270b",
+      "form_names": [],
+      "control_names": [
+        "q",
+        "token",
+        "user"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_terminal.php",
+      "sha256": "28efb17137fa0ccdf712e2a6e8e9af5b67efe0d86724b876787d522a35e0401b",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_updates.php",
+      "sha256": "ea5bf37e014473508957c6c98c0bee59b65d2ed6f9c08a9c6e08aebe37ad7e9a",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_user.php",
+      "sha256": "528c0d85efe984d8a1fdedb57dfd24960e0c7ac4cf4182b4a94155194af1367b",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_web.php",
+      "sha256": "6eb440787d8f4e7a3055a6daa8b0856f08a0a9fbbc7879abd608a78d46fdf21c",
+      "form_names": [],
+      "control_names": [
+        "action",
+        "q",
+        "token"
+      ],
+      "details_sections": 0
+    },
+    {
+      "template": "list_webapps.php",
+      "sha256": "6d114fc3a70db7bba143e288abcd181310608522f40627e4d1c932f433b90f96",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "list_weblog.php",
+      "sha256": "da7ec05447837d55ce42d6b88d23c16e3f142fe9019ebb94ba8065abae1465ab",
+      "form_names": [],
+      "control_names": [],
+      "details_sections": 0
+    },
+    {
+      "template": "setup_webapp.php",
+      "sha256": "3c0114b9388eb641ad162dc9467cb706d67adf048a91c11908d384df03bdbe25",
+      "form_names": [
+        "v_setup_webapp"
+      ],
+      "control_names": [
+        "ok",
+        "token"
+      ],
+      "details_sections": 0
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import vm from 'node:vm';
+const js=['demo-data.js','control-schema.js','control.js','app.js'];
+const files=['dist/index.html','dist/assets/style.css','dist/assets/control.css',...js.map(f=>'dist/assets/'+f),'theme/studio.css','theme/studio.js','scripts/install.sh','scripts/uninstall.sh','README.md','docs/COMPATIBILITY.md'];
+for(const file of ['theme/studio.css','theme/studio.js']){const text=await readFile(file,'utf8');assert.ok(!/STUDIO_DEMO|server\.example|192\.0\.2|example\.com|XMLHttpRequest|sendBeacon/.test(text),'Fixture data or network call in live theme');}
+let make;
+const sandbox={window:{},document:{addEventListener:(event,fn)=>{if(event==='alpine:init')fn()},documentElement:{dataset:{}},querySelector:()=>null,title:''},Alpine:{data:(name,fn)=>{make=fn}},structuredClone,URL,localStorage:{getItem:()=>null,setItem(){}},setTimeout:()=>0,clearTimeout(){},console};
+sandbox.window.scrollTo=()=>{};vm.createContext(sandbox);
+for(const file of js)vm.runInContext(await readFile('dist/assets/'+file,'utf8'),sandbox,{filename:file});
+function create(){const app=make();app.$watch=()=>{};app.$nextTick=fn=>fn();app.$refs={};app.init();return app}
+const app=create();
+app.openChildren('ftp',app.demo.sites[0]);assert.equal(app.page,'sites');assert.equal(app.isResource,true);assert.equal(app.rows.length,1);app.back();
+assert.equal(app.nav.length,19);assert.equal(app.settingsSections.length,12);
+app.go('sites');app.query='SHOP';assert.equal(app.rows.length,1);app.query='';app.filter='Askıda';assert.equal(app.rows.length,1);
+app.go('users');assert.equal(app.filter,'Tümü');app.editRecord('users');assert.equal(app.saveRecord(),false);assert.ok(app.errors.name&&app.errors.email&&app.errors.password);
+Object.assign(app.editor,{name:'sampleuser',contact:'Example User',email:'sample@example.com',password:'Demo!12345',package:'hosting'});assert.equal(app.saveRecord(),true);assert.equal(app.demo.users.length,3);const user=app.demo.users.at(-1);assert.ok(!('password' in user));assert.equal(Object.keys(app.editor).length,0);
+app.editRecord('users',user);Object.assign(app.editor,{contact:'Updated',name:'changed'});assert.equal(app.saveRecord(),true);assert.equal(app.demo.users.length,3);assert.equal(app.demo.users.at(-1).id,user.id);assert.equal(app.demo.users.at(-1).name,'sampleuser');
+app.editRecord('users');Object.assign(app.editor,{name:'SAMPLEUSER',contact:'Duplicate',email:'duplicate@example.com',password:'Demo!12345'});assert.equal(app.saveRecord(),false);assert.ok(app.errors.name);
+app.editRecord('users',app.demo.users[0]);app.editor.role='Kullanıcı';assert.equal(app.saveRecord(),false);assert.ok(app.errors.role);
+app.requestAction('delete',[app.demo.users[0]],'users');app.confirmAction();assert.equal(app.demo.users.length,3);
+app.requestAction('delete',[app.demo.packages[1]],'packages');app.confirmAction();assert.equal(app.demo.packages.length,2);
+app.go('mail');app.openChildren('mailAccounts',app.demo.mail[0]);assert.equal(app.rows.length,2);app.editRecord('mailAccounts');Object.assign(app.editor,{name:'billing',password:'Demo!12345'});assert.equal(app.saveRecord(),true);assert.equal(app.rows.length,3);assert.equal(app.rows.at(-1).parentId,11);assert.ok(!('password'in app.rows.at(-1)));
+app.back();assert.equal(app.resource,'mail');app.requestAction('delete',[app.demo.mail[0]],'mail');app.confirmAction();assert.equal(app.demo.mailAccounts.filter(r=>r.parentId===11).length,0);
+app.go('dns');app.openChildren('dnsRecords',app.demo.dns[0]);app.editRecord('dnsRecords');Object.assign(app.editor,{name:'api',type:'A',value:'999.0.2.1'});assert.equal(app.saveRecord(),false);app.editor.value='192.0.2.45';assert.equal(app.saveRecord(),true);
+app.editRecord('dnsRecords');Object.assign(app.editor,{name:'api',type:'AAAA',value:'2001:db8::1'});assert.equal(app.saveRecord(),true);
+app.go('sites');app.editRecord('sites');Object.assign(app.editor,{name:'new.example.com',createDns:true,createMail:true});assert.equal(app.saveRecord(),true);assert.ok(app.demo.dns.some(r=>r.name==='new.example.com'));assert.ok(app.demo.mail.some(r=>r.name==='new.example.com'));
+app.go('databases');app.editRecord('databases');Object.assign(app.editor,{name:'reports',username:'reports',password:'Demo!12345'});assert.equal(app.saveRecord(),true);assert.equal(app.demo.databases.at(-1).name,'demo_reports');
+app.go('cron');app.editRecord('cron');Object.assign(app.editor,{name:'Test schedule',command:'echo demo',minute:'90'});assert.equal(app.saveRecord(),false);assert.ok(app.errors.minute);app.editor.preset='Her 5 dakika';app.onField({key:'preset'},app.editor);assert.equal(app.editor.minute,'*/5');assert.equal(app.saveRecord(),true);
+app.go('packages');app.editRecord('packages');Object.assign(app.editor,{name:'unlimited_demo',quota:'unlimited'});assert.equal(app.saveRecord(),true);
+app.go('settings');app.settingsDraft.general.hostname='invalid host';assert.equal(app.saveSettings(),false);app.settingsDraft.general.hostname='updated.example.com';app.changeSettings('backup');app.settingsDraft.backup.remoteBackup=true;app.settingsDraft.backup.backupPassword='DemoSecret!';assert.equal(app.settingsDirtyCount,2);assert.equal(app.saveSettings(),true);assert.ok(!('backupPassword'in app.settingsSaved.backup));assert.equal(app.settingsSaved.general.hostname,'server.example.com');app.changeSettings('general');assert.equal(app.settingsDraft.general.hostname,'updated.example.com');assert.equal(app.saveSettings(),true);assert.equal(app.settingsDirtyCount,0);
+app.settingsDraft.general.hostname='discard.example.com';app.discardSettings();assert.equal(app.settingsDraft.general.hostname,'updated.example.com');
+app.go('backups');app.backup();assert.equal(app.demo.backups.length,4);app.restore(app.demo.backups[0]);Object.keys(app.editor).forEach(k=>app.editor[k]=false);assert.equal(app.saveRecord(),false);app.editor.web=true;assert.equal(app.saveRecord(),true);assert.match(app.demo.logs[0].name,/Geri yükleme/);
+app.go('files');app.enterFolder(app.demo.files[0]);assert.equal(app.rows.length,1);app.parentFolder();assert.equal(app.rows.length,3);
+const chart=app.chartPoints;app.period='7g';assert.notEqual(app.chartPoints,chart);
+app.resetPreview();assert.equal(app.demo.users.length,2);assert.equal(app.settingsDraft.general.hostname,'server.example.com');assert.equal(app.demo.mail.length,2);assert.equal(create().demo.sites.length,4);
+const html=await readFile('dist/index.html','utf8');assert.equal((html.match(/<dialog /g)||[]).length,2);assert.ok(html.includes('$refs.profileTrigger.focus()'));assert.ok(!html.includes(':disabled="field.readonly"'));for(const asset of ['control-schema.js','control.js','control.css'])assert.ok(html.includes('assets/'+asset));
+console.log('Passed: privacy, theme isolation, navigation, user CRUD, protected accounts/packages, secret disposal, relationships/cascades, DNS validation, database prefix, cron limits, unlimited quotas, independent settings save/discard, backup simulation, folders, reset and dialog wiring.');
