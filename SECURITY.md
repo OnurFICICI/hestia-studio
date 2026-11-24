@@ -4,7 +4,7 @@ Studio 2.1.0 targets HestiaCP 1.10.9. Other versions are unverified. This commun
 
 ## Report privately
 
-Use GitHub **Security → Report a vulnerability** if enabled. Otherwise open a minimal issue asking for a private channel, without exploit details or sensitive information, and wait for a maintainer response.
+Private vulnerability reporting is enabled on this repository. Open **Security and quality → Advisories → Report a vulnerability** to send a confidential report to the maintainers. Do not disclose vulnerabilities in public issues, discussions, or pull requests.
 
 Include versions, reproduction with fictional data, expected/actual behavior, and potential impact. Never include live passwords, tokens, SSH keys, cookies, session exports, or customer records.
 
