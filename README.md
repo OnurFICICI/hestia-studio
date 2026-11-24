@@ -69,7 +69,7 @@ No Node.js, npm, Python, Composer, database migration, or frontend build is need
 
 ### 1. Download and extract
 
-Download this repository with **Code → Download ZIP**, or use a dedicated `Hestia-Studio-Theme.zip` / `Hestia-Studio-Theme.tar.gz` asset if supplied with a release. Transfer it to your HestiaCP server and extract it outside hosted websites' public directories.
+Open this repository's **Releases** section and download `Hestia-Studio-Theme.tar.gz` or `Hestia-Studio-Theme.zip`. The release includes `SHA256SUMS.txt` for download verification. **Code → Download ZIP** also works, but contains the current development source. Transfer the package to your HestiaCP server and extract it outside hosted websites' public directories.
 
 Open a terminal in the extracted folder containing `README.md`, `scripts/`, and `theme/`. For a dedicated TAR.GZ package:
 
@@ -166,6 +166,8 @@ Local view checks do not prove every production operation works. Provisioning, m
 ## Contribute
 
 Bug reports, translations, accessibility improvements, and focused pull requests are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and the [translation guide](docs/TRANSLATING.md).
+
+Use **Discussions** for questions and community ideas, and **Issues** for reproducible bugs and focused feature requests. See [support options](SUPPORT.md) and our [code of conduct](CODE_OF_CONDUCT.md). Fork the repository and open a pull request to contribute; maintainers review changes before merging them.
 
 ## License & credits
 

@@ -19,6 +19,7 @@ markers=json.loads(os.environ.get('STUDIO_PRIVATE_MARKERS','[]'))
 source_files=privacy.check(markers)
 theme_files=[name for name in source_files if name.startswith(('theme/','docs/')) or name in {
     'README.md','LICENSE','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','SECURITY.md','CHANGELOG.md',
+    'SUPPORT.md','CODE_OF_CONDUCT.md',
     'scripts/install.sh','scripts/restore.sh','scripts/uninstall.sh'}]
 preview=release/'Hestia-Studio-Preview.html'
 if not preview.is_file(): raise FileNotFoundError('Run npm run build first.')
