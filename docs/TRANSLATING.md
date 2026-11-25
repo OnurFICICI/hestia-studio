@@ -1,6 +1,6 @@
 # Theme translations
 
-Studio includes all 43 languages offered by HestiaCP 1.10.9. The selected Hestia account language controls the theme; no separate language selector is introduced.
+Studio includes all 43 languages offered by HestiaCP 1.10.9 and 1.10.10. The selected Hestia account language controls the theme; no separate language selector is introduced.
 
 Every theme interface label is supplied by `theme/locales/<language>.json`. Native form labels continue to use Hestia's own gettext catalogs. Theme dictionaries incorporate existing Hestia translations plus theme-specific additions. English is used only for an unknown language or an invalid/missing dictionary; every supported dictionary has all keys.
 

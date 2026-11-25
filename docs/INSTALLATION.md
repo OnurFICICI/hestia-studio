@@ -1,18 +1,18 @@
 # Installing Hestia Studio
 
-Studio 2.1.1 targets HestiaCP 1.10.9. Install it on the Hestia server, not on a desktop computer or inside a website's public directory.
+The Studio 2.1.2 development source supports HestiaCP 1.10.9 and 1.10.10. The published v2.1.1 installer accepts only 1.10.9. Install Studio on the Hestia server, not on a desktop computer or inside a website's public directory.
 
 ## Requirements
 
 - Root access or an account that can run `sudo`.
-- HestiaCP 1.10.9; do not bypass the version check.
+- HestiaCP 1.10.9 or 1.10.10; do not bypass the version check.
 - A complete source ZIP or dedicated Theme archive.
 
 No Node.js, npm, Python, Composer, or build is needed on the server. The installer uses Hestia's PHP when available, with system PHP as a fallback. Keep a working SSH session available. The backup covers Studio assets, not the entire server.
 
 ## Quick installation
 
-1. Download **Code → Download ZIP** from the repository, or a dedicated Theme archive if available.
+1. Download **Code → Download ZIP** from the repository. On 1.10.9, the published v2.1.1 Theme archives are also supported; on 1.10.10, use the current source ZIP until a newer Release is published.
 2. Transfer and extract it outside hosted public directories on the Hestia server.
 3. Enter the folder containing `scripts/` and `theme/`.
 4. Run `sudo bash scripts/install.sh`.
@@ -56,6 +56,8 @@ It does not patch core files, select a theme, create users, install a daemon, or
 
 Extract the newer package and run `sudo bash scripts/install.sh` from its directory. If the account already uses `studio`, reload. Versioned assets help prevent mixed old/new files; hard-refresh if necessary.
 
+If Studio 2.1.1 is already working after upgrading HestiaCP from 1.10.9 to 1.10.10, no theme reinstall is required solely for that upgrade. The 2.1.2 source change allows fresh installation and reinstallation on 1.10.10; it does not introduce a new interface. The maintainer's existing-installation report does not establish fresh-install or rollback validation on 1.10.10.
+
 ## Roll back
 
 Use the exact backup directory printed by the installation to undo:
@@ -83,7 +85,7 @@ Only known Studio assets are removed. Backups and HestiaCP remain.
 | `studio` is missing | Confirm installation completed on the correct server and custom `studio.css` exists; reload the profile form. |
 | Server setting changed but appearance did not | Select `studio` in the user's profile too. |
 | Old or mixed layout | Save the account theme, hard-refresh, and try a fresh sign-in. All assets must come from the same package. |
-| Version mismatch | Keep the restriction; only 1.10.9 is targeted. |
+| Version mismatch | Current source accepts only 1.10.9 and 1.10.10. If using the v2.1.1 Release on 1.10.10, download the current source ZIP; do not edit Hestia's version or bypass the check. |
 | Permission denied | Run as root or with `sudo` on the Hestia server. |
 | PHP/dictionary error | Obtain a complete unmodified package; do not skip validation. |
 | Host data unavailable | Check administrator permissions and services/monitoring routes. No fabricated fallback readings are shown. |

@@ -12,13 +12,15 @@
 
 ![Hestia Studio dark dashboard with resource charts and service status](docs/screenshots/overview-dark.jpg)
 
-**Hestia Studio** is a free, open-source theme for **Hestia Control Panel (HestiaCP) 1.10.9**. It brings a clean sidebar, a useful server overview, and a consistent interface to everyday hosting administration.
+**Hestia Studio** is a free, open-source theme for **Hestia Control Panel (HestiaCP) 1.10.9 and 1.10.10**. It brings a clean sidebar, a useful server overview, and a consistent interface to everyday hosting administration.
 
 Your existing forms, hosting modules, permissions, and backend actions continue to run through HestiaCP. Studio installs custom CSS, JavaScript, PHP presentation metadata, and language dictionaries. **No Hestia core file is patched.**
 
-> **Compatibility:** Studio **2.1.1** targets HestiaCP **1.10.9**. The installer rejects other versions. Screenshots use fictional accounts, reserved example domains, and synthetic measurements. Read the [validation limits](docs/COMPATIBILITY.md#verification-and-limits) before deployment.
+> **Compatibility:** the **2.1.2 development source** accepts HestiaCP **1.10.9 and 1.10.10**. The latest published Release is still **v2.1.1**, whose installer accepts only **1.10.9**. For a new installation on **1.10.10**, use **Code → Download ZIP** until a newer Release is published. Other Hestia versions remain rejected. Read the [source review and validation limits](docs/COMPATIBILITY.md).
 
 > **Live-server verification:** the maintainer confirmed successful installation of **v2.1.1** on **Ubuntu 24.04 / HestiaCP 1.10.9**, matching of all 46 installed theme files, the corrected load-average scale, and working Turkish display on **2026-11-24**. See the [verification details](docs/COMPATIBILITY.md#maintainer-confirmed-linux-checks).
+
+> **HestiaCP 1.10.10:** on **2026-11-25**, the maintainer confirmed continuing to use Studio **2.1.1** after upgrading HestiaCP to **1.10.10**, with no issues found so far. The tagged-source comparison found no required theme behavior changes. This is limited usage feedback, not a full administration regression or a fresh-install test of Studio 2.1.2. Existing users do not need to reinstall just because Hestia was upgraded.
 
 ## What you get
 
@@ -71,7 +73,9 @@ No Node.js, npm, Python, Composer, database migration, or frontend build is need
 
 ### 1. Download and extract
 
-Open this repository's **Releases** section and download `Hestia-Studio-Theme.tar.gz` or `Hestia-Studio-Theme.zip`. The release includes `SHA256SUMS.txt` for download verification. **Code → Download ZIP** also works, but contains the current development source. Transfer the package to your HestiaCP server and extract it outside hosted websites' public directories.
+For **HestiaCP 1.10.10**, download the current source with **Code → Download ZIP**. The published **v2.1.1** installer still rejects 1.10.10; do not bypass its check or change the server's reported version.
+
+For **HestiaCP 1.10.9**, you can also open **Releases** and download `Hestia-Studio-Theme.tar.gz` or `Hestia-Studio-Theme.zip`; the release includes `SHA256SUMS.txt`. The source ZIP contains development changes, while published Release files remain unchanged. Transfer the package to your HestiaCP server and extract it outside hosted websites' public directories.
 
 Open a terminal in the extracted folder containing `README.md`, `scripts/`, and `theme/`. For a dedicated TAR.GZ package:
 
@@ -90,7 +94,7 @@ sudo bash scripts/install.sh
 
 Already root? Use `bash scripts/install.sh`.
 
-The installer checks HestiaCP **1.10.9**, validates PHP and all 43 dictionaries, backs up existing Studio assets, and installs **46 theme files**. Keep the backup directory printed at completion. It does not restart services or change the selected theme.
+The current source installer accepts HestiaCP **1.10.9 or 1.10.10**, validates PHP and all 43 dictionaries, backs up existing Studio assets, and installs **46 theme files**. Keep the backup directory printed at completion. It does not restart services or change the selected theme.
 
 ### 3. Select Studio for your account
 
@@ -135,7 +139,7 @@ Studio uses Hestia's custom theme directory and existing custom-script loader. N
 
 The administrator overview reads authorized, same-origin Hestia pages and RRD data. Host metrics refresh every 30 seconds while the page is visible. The PHP component reads Linux CPU ticks, memory, and root-filesystem space only in the permitted administrator overview. It executes no shell commands and creates no new endpoint.
 
-**CPU percentage is a live sample.** Historical charts show load average or used memory; load average is not labeled historical CPU percentage. HestiaCP 1.10.9 exports load multiplied by 100; Studio converts that series back to load units (raw `105` becomes `1.05`). Memory history remains in MiB and live CPU remains a percentage. Missing samples remain gaps, including when the process-count column is present; zero remains valid. Root-filesystem disk and account bandwidth have different scopes.
+**CPU percentage is a live sample.** Historical charts show load average or used memory; load average is not labeled historical CPU percentage. HestiaCP 1.10.9 and 1.10.10 export load multiplied by 100; Studio converts that series back to load units (raw `105` becomes `1.05`). Memory history remains in MiB and live CPU remains a percentage. Missing samples remain gaps, including when the process-count column is present; zero remains valid. Root-filesystem disk and account bandwidth have different scopes.
 
 Theme translations, layout direction, and number/date formatting follow the effective account language supplied by the PHP bridge. A different server-default HTML language does not override it. Empty account language uses the server default; invalid or unavailable dictionaries retain the existing gettext/English label fallback and use English formatting. The browser's presentation language is updated without changing account or server preferences.
 

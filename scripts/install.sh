@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
-# Hestia Studio 2.1.1. Only custom theme assets are installed; no core files changed.
+# Hestia Studio 2.1.2. Only custom theme assets are installed; no core files changed.
 set -euo pipefail
 [[ ${EUID} -eq 0 ]] || { printf '%s\n' 'Run this installer as root.' >&2; exit 1; }
 root=/usr/local/hestia
 source_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
 [[ -f "$root/conf/hestia.conf" ]] || { printf '%s\n' 'HestiaCP was not found.' >&2; exit 1; }
 version=$(sed -n "s/^VERSION='\([^']*\)'[[:space:]]*$/\1/p" "$root/conf/hestia.conf")
-[[ "$version" == '1.10.9' ]] || { printf 'This package targets HestiaCP 1.10.9. Found: %s\n' "$version" >&2; exit 1; }
+# BEGIN supported HestiaCP versions
+case "$version" in
+  1.10.9|1.10.10) ;;
+  *) printf 'This package targets HestiaCP 1.10.9 or 1.10.10. Found: %s\n' "$version" >&2; exit 1 ;;
+esac
+# END supported HestiaCP versions
 css_dir="$root/web/css/themes/custom"
 js_dir="$root/web/js/custom_scripts"
 locale_dir="$js_dir/studio-locales"
@@ -66,5 +71,5 @@ for i in "${order[@]}"; do
   cmp -s -- "${sources[$i]}" "${targets[$i]}"
 done
 trap - ERR
-printf 'Installed Studio 2.1.1 with 43 locales. Backup: %s\n' "$backup_dir"
+printf 'Installed Studio 2.1.2 with 43 locales. Backup: %s\n' "$backup_dir"
 printf '%s\n' 'Select studio in Hestia appearance settings, then reload.' 'No core templates, accounts, services or permissions were changed.'

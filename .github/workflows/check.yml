@@ -22,9 +22,11 @@ jobs:
         run: npm run check
       - name: Shell syntax
         run: |
-          for script in scripts/install.sh scripts/restore.sh scripts/uninstall.sh; do
+          for script in scripts/install.sh scripts/restore.sh scripts/uninstall.sh tests/install-version.sh; do
             bash -n "$script"
           done
+      - name: Installer version compatibility
+        run: bash tests/install-version.sh
       - name: Build and verify release archives
         run: |
           npm run build

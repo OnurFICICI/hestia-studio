@@ -1,9 +1,9 @@
 [
   ".gitattributes",
-  ".github/dependabot.yml",
   ".github/ISSUE_TEMPLATE/bug_report.md",
   ".github/ISSUE_TEMPLATE/feature_request.md",
   ".github/PULL_REQUEST_TEMPLATE.md",
+  ".github/dependabot.yml",
   ".github/workflows/check.yml",
   ".gitignore",
   "CHANGELOG.md",
@@ -59,6 +59,7 @@
   "scripts/restore.sh",
   "scripts/serve.mjs",
   "scripts/uninstall.sh",
+  "tests/install-version.sh",
   "tests/native-contracts.mjs",
   "tests/render-native.php",
   "theme/locales/ar.json",

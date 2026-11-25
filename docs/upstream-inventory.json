@@ -1,6 +1,6 @@
 {
-  "version": "1.10.9",
-  "commit": "99df77b4c29408b7a941c48d0ec97d44148cf50f",
+  "version": "1.10.10",
+  "commit": "ef09692fd54c640954376fc37489955e1910d412",
   "note": "Source-level inventory; conditional and dynamically generated controls may differ at runtime. Native templates are never replaced by Studio. This is not a live test report.",
   "templates": [
     {
@@ -923,7 +923,7 @@
     },
     {
       "template": "list_db.php",
-      "sha256": "f71785577d00a51822103392e27d52cdeaf9f540350c3a3e98a401846de6c8a4",
+      "sha256": "754bdabf5dc9d629b63e293bd0c6e4367bb53376bed82b01caf3496839effbfa",
       "form_names": [],
       "control_names": [
         "action",
@@ -1205,5 +1205,6 @@
       ],
       "details_sections": 0
     }
-  ]
+  ],
+  "reviewed": "2026-11-25"
 }

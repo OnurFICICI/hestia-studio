@@ -1,4 +1,4 @@
-/* Hestia Studio 2.1.1 · GPL-3.0-or-later. Native forms and actions stay intact.
+/* Hestia Studio 2.1.2 · GPL-3.0-or-later. Native forms and actions stay intact.
    Interface labels are supplied exclusively by studio.php and locale files. */
 (()=>{
  'use strict';
@@ -73,7 +73,7 @@
   const start=Number(payload?.meta?.start),step=Number(payload?.meta?.step);
   if(!Number.isFinite(start)||!Number.isFinite(step)||step<=0||!Array.isArray(payload.data))throw Error('Invalid series');
   if(metric!=='la'&&metric!=='mem')throw Error('Unsupported series');
-  // HestiaCP 1.10.9 exports [LA * 100, processes]; RAM is already in MiB.
+  // HestiaCP 1.10.9 and 1.10.10 export [LA * 100, processes]; RAM is already in MiB.
   const divisor=metric==='la'?100:1;
   return payload.data.slice(0,4096).map((row,i)=>({time:(start+i*step)*1000,value:Array.isArray(row)&&typeof row[0]==='number'&&Number.isFinite(row[0])&&row[0]>=0?row[0]/divisor:null}));
  }
@@ -153,7 +153,7 @@
   if(!ctx?.labels)return;
   const t=key=>ctx.labels[key]||'';
   const locale=themeLocale(ctx.language);
-  root.dataset.studioReady='2.1.1';root.lang=locale;root.dir=/^(ar|fa|ku|ur)(-|$)/i.test(locale)?'rtl':'ltr';
+  root.dataset.studioReady='2.1.2';root.lang=locale;root.dir=/^(ar|fa|ku|ur)(-|$)/i.test(locale)?'rtl':'ltr';
   let stored;try{stored=localStorage.getItem('hestia-studio-color')}catch{}
   function setTheme(mode){root.dataset.studioTheme=mode;try{localStorage.setItem('hestia-studio-color',mode)}catch{}document.querySelectorAll('[data-studio-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.studioMode===mode)));}
   setTheme(['light','dark'].includes(stored)?stored:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));

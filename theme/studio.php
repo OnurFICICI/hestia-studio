@@ -1,6 +1,6 @@
 <?php
 /**
- * Hestia Studio 2.1.1 · GPL-3.0-or-later.
+ * Hestia Studio 2.1.2 · GPL-3.0-or-later.
  * Loaded by Hestia's supported web/js/custom_scripts/*.php hook.
  * Presentation metadata and a theme-owned session flag; no file writes or commands.
  */
@@ -46,7 +46,7 @@ if ((!empty($_SESSION['userTheme']) ? $_SESSION['userTheme'] : ($_SESSION['THEME
     $landing = $firstView && $admin && $page === 'list_user'
         && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET' && empty($_GET) && empty($_POST);
     $payload = [
-        'version' => '2.1.1',
+        'version' => '2.1.2',
         'language' => $language,
         'account' => (string) $account,
         'landing' => $landing,
@@ -108,6 +108,6 @@ if ((!empty($_SESSION['userTheme']) ? $_SESSION['userTheme'] : ($_SESSION['THEME
     echo '</script>';
     // Explicit versioned assets bypass a browser's cached 1.x theme. The JS boot guard
     // makes Hestia's automatic (unversioned) script include harmless on repeat loads.
-    echo '<link rel="stylesheet" href="/css/themes/custom/studio.css?studio=2.1.1">';
-    echo '<script defer src="/js/custom_scripts/studio.js?studio=2.1.1"></script>';
+    echo '<link rel="stylesheet" href="/css/themes/custom/studio.css?studio=2.1.2">';
+    echo '<script defer src="/js/custom_scripts/studio.js?studio=2.1.2"></script>';
 })($_SESSION, isset($page) && is_string($page) ? $page : '', isset($data) && is_array($data) ? $data : []);
